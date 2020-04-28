@@ -5,8 +5,10 @@ import {
   BreadcrumbLink,
   Icon,
 } from '@chakra-ui/core';
+import { Link } from 'react-router-dom';
 
-const Breadcrum = () => {
+const Breadcrum = ({ data }) => {
+  console.log(data);
   return (
     <Breadcrumb
       spacing="8px"
@@ -15,15 +17,13 @@ const Breadcrum = () => {
       separator={<Icon color="gray.300" name="chevron-right" />}
     >
       <BreadcrumbItem>
-        <BreadcrumbLink href="/">All Contacts</BreadcrumbLink>
+        <BreadcrumbLink as={Link} to="/">
+          All Contacts
+        </BreadcrumbLink>
       </BreadcrumbItem>
 
       <BreadcrumbItem>
-        <BreadcrumbLink href="/about">About</BreadcrumbLink>
-      </BreadcrumbItem>
-
-      <BreadcrumbItem isCurrentPage>
-        <BreadcrumbLink href="/contact">Contact</BreadcrumbLink>
+        <BreadcrumbLink>{data}</BreadcrumbLink>
       </BreadcrumbItem>
     </Breadcrumb>
   );
